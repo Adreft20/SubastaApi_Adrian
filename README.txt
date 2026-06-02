@@ -2,7 +2,7 @@ PASOS PARA ABRIR EL PROYECTO
 -----------------------------
  
 1. Clona el repositorio (solo la primera vez):
-   git clone https://github.com/Adreft20/SubastaAd.git
+   git clone https://github.com/Adreft20/SubastaApi_Adrian.git
  
 2. Entra a la carpeta del proyecto:
    cd SubastaAd
