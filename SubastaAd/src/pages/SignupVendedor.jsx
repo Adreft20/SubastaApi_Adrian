@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function Signup() {
+function SignupVendedor() {
   const [form, setForm] = useState({
     nombre: '',
     apellidoPaterno: '',
@@ -21,11 +21,11 @@ function Signup() {
       const response = await fetch('http://localhost:5288/api/auth/registro', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, cveTipoUsuario: 3 })
+        body: JSON.stringify({ ...form, cveTipoUsuario: 2 })
       })
 
       if (response.ok) {
-        alert('¡Cuenta creada exitosamente!')
+        alert('¡Cuenta de vendedor creada exitosamente!')
         window.location.href = '/'
       } else {
         const mensaje = await response.text()
@@ -44,7 +44,7 @@ function Signup() {
       >
         <img src="/logo.png" alt="Logo" className="w-24 h-24 mb-2" />
 
-        <h2 className="text-lg font-semibold text-gray-700">Registro de comprador</h2>
+        <h2 className="text-lg font-semibold text-gray-700">Registro de vendedor</h2>
 
         <label className="w-full font-medium text-gray-700">Nombre</label>
         <input
@@ -128,8 +128,8 @@ function Signup() {
         </p>
 
         <p className="text-xs text-gray-500 mt-2">
-          ¿Deseas ser vendedor?{' '}
-          <a href="/signup-vendedor" className="text-blue-600 font-medium hover:underline">
+          ¿Deseas ser comprador?{' '}
+          <a href="/signup" className="text-blue-600 font-medium hover:underline">
             Regístrate aquí
           </a>
         </p>
@@ -138,4 +138,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default SignupVendedor

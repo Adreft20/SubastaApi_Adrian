@@ -22,7 +22,9 @@ function Login() {
 
       if (response.ok) {
         const data = await response.json()
+        console.log(data)
         localStorage.setItem('token', data.token)
+        localStorage.setItem('idUsuario', data.usuario.idUsuario)
         window.location.href = '/home'
       } else {
         alert('Correo o contraseña incorrectos')
@@ -39,6 +41,8 @@ function Login() {
         className="bg-white w-80 flex flex-col items-center gap-2 py-8 px-6 rounded-xl shadow-lg"
       >
         <img src="/logo.png" alt="Logo" className="w-24 h-24 mb-2" />
+
+        <h2 className="text-lg font-semibold text-gray-700">Iniciar sesión</h2>
 
         <label className="w-full font-medium text-gray-700">Correo</label>
         <input
