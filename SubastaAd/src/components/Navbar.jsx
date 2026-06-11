@@ -106,7 +106,7 @@ function Navbar() {
 
                     {/* Crear subasta */}
                     <button
-                        onClick={() => window.location.href = '/crear-subasta'}
+                        onClick={() => window.location.href = '/CrearSubasta'}
                         className="bg-green-600 text-white px-4 py-2 rounded-full hover:opacity-75 transition-all"                    
                     >
                         Crear subasta

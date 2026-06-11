@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import ActualizarDatos from './pages/ActualizarDatos'
 import CambiarContraseña from './pages/CambiarContraseña'
+import CrearSubasta from './pages/CrearSubasta'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/actualizar-datos" element={<ActualizarDatos />} />
           <Route path="/cambiar-contrasenia" element={<CambiarContraseña />} />
+          <Route path="/CrearSubasta" element={<CrearSubasta />} />
         </Routes>
       </div>
     </BrowserRouter>
