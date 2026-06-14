@@ -17,7 +17,7 @@ function DetallesUsuario() {
             headers: { 'Authorization': `Bearer ${token}` }
         })
         .then(response => response.json())
-        .then(data => setUsuario(data))
+        .then(data => { console.log(data); setUsuario(data) })
         .catch(err => setError('No se pudo cargar la información del usuario'));
     }, []);
 
@@ -54,20 +54,48 @@ function DetallesUsuario() {
         {usuario.cveTipoUsuario === 2 && (
             <div className="bg-white w-full max-w-md rounded-xl shadow-lg p-6 mt-4">
                 <h3 className="text-md font-semibold text-gray-700 mb-4">Mis subastas</h3>
-                {usuario.subastas && usuario.subastas.length > 0 ? (
-                    <div className="flex gap-4 flex-wrap">
-                        {usuario.subastas.map((subasta, index) => (
-                            <div key={index} className="bg-gray-100 rounded-lg p-4 w-36 flex flex-col items-center gap-2">
-                                <div className="w-20 h-20 bg-gray-300 rounded"></div>
-                                <button className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full hover:opacity-75">
-                                    Ver detalles
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    <p className="text-sm text-gray-400">No tienes subastas activas</p>
-                )}
+                {(() => {
+                    const activas = usuario.subastas.filter(
+                        s => s.cveStatusSubasta === 1 || s.cveStatusSubasta === 2
+                    )
+
+                    if (activas.length === 0) {
+                        return <p className="text-sm text-gray-400">No tienes subastas activas</p>
+                    }
+
+                    return (
+                        <div className="flex gap-4 flex-wrap">
+                            {activas.map((subasta) => {
+                                const producto = usuario.productos.find(p => p.idProducto === subasta.cveProducto)
+                                const foto = producto?.fotos?.[0]?.url
+
+                                return (
+                                    <div key={subasta.idSubasta} className="bg-gray-100 rounded-lg p-4 w-36 flex flex-col items-center gap-2">
+                                        <div className="w-20 h-20 bg-gray-300 rounded overflow-hidden flex items-center justify-center">
+                                            {foto ? (
+                                                <img src={foto} alt={producto?.nombre} className="w-full h-full object-cover" />
+                                            ) : (
+                                                <span className="text-2xl">📦</span>
+                                            )}
+                                        </div>
+                                        <p className="text-xs text-gray-700 text-center font-medium truncate w-full">
+                                            {producto?.nombre || 'Producto'}
+                                        </p>
+                                        <p className="text-xs text-blue-600 font-bold">
+                                            ${subasta.precioActual ?? subasta.precioInicial}
+                                        </p>
+                                        <button
+                                            onClick={() => window.location.href = `/subasta/${subasta.idSubasta}`}
+                                            className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full hover:opacity-75"
+                                        >
+                                            Ver detalles
+                                        </button>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )
+                })()}
             </div>
         )}
 

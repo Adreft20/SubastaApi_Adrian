@@ -58,53 +58,53 @@ function ActualizarDatos() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10 px-4">
+        <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center py-10 px-4">
             <form
                 onSubmit={handleSubmit}
                 className="bg-white w-full max-w-md rounded-xl shadow-lg p-8 flex flex-col gap-4"
             >
-                <h2 className="text-lg font-semibold text-gray-800">Actualizar datos</h2>
+                <h2 className="text-2xl font-semibold text-gray-800">Actualizar datos</h2>
                 <div>
-                    <label className="block font-medium text-gray-700">Nombre</label>
+                    <label className="w-full font-medium text-gray-700">Nombre</label>
                     <input
                         type="text"
                         name="nombre"
                         value={form.nombre}
                         onChange={handleChange}
-                        className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     />
                 </div>
 
                 <div>
-                    <label className="block font-medium text-gray-700">Apellido paterno</label>
+                    <label className="w-full font-medium text-gray-700">Apellido paterno</label>
                     <input
                         type="text"
                         name="apellidoPaterno"
                         value={form.apellidoPaterno}
                         onChange={handleChange}
-                        className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     />
                 </div>
 
                 <div>
-                    <label className="block font-medium text-gray-700">Apellido materno</label>
+                    <label className="w-full font-medium text-gray-700">Apellido materno</label>
                     <input
                         type="text"
                         name="apellidoMaterno"
                         value={form.apellidoMaterno}
                         onChange={handleChange}
-                        className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     />
                 </div>
 
                 <div>
-                    <label className="block font-medium text-gray-700">Correo electrónico</label>
+                    <label className="w-full font-medium text-gray-700">Correo electrónico</label>
                     <input
                         type="email"
                         name="correo"
                         value={form.correo}
                         onChange={handleChange}
-                        className="border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     />
                 </div>
 
@@ -112,13 +112,13 @@ function ActualizarDatos() {
                     <button
                         type="button"
                         onClick={() => window.location.href = '/detalles-usuario'}
-                        className="bg-gray-400 text-white px-4 py-2 rounded-full hover:opacity-75 transition-all"
+                        className="bg-gray-400 text-white px-4 py-2 rounded-lg hover:opacity-75 transition-all"
                     >
                         Cancelar
                     </button>
                     <button
                         type="submit"
-                        className="bg-blue-600 text-white px-4 py-2 rounded-full hover:opacity-75 transition-all"
+                        className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                         Guardar cambios
                     </button>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Navbar from '../components/Navbar'
+
 
 function CrearSubasta() {
 
@@ -179,8 +179,6 @@ function CrearSubasta() {
 
     return (
         <>
-            <Navbar />
-
             <div className="min-h-screen bg-gray-100 pt-28 pb-10 px-4">
                 <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
                     <h1 className="text-3xl font-bold mb-8 text-gray-800">

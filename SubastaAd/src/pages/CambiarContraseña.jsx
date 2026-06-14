@@ -112,7 +112,7 @@ function CambiarContrasenia() {
                     <button
                         type="button"
                         onClick={() => window.location.href = '/detalles-usuario'}
-                        className="bg-gray-400 text-white px-4 py-2 rounded-full hover:opacity-75 transition-all"
+                        className="bg-gray-400 text-white px-4 py-2 rounded-lg hover:opacity-75 transition-all"
                     >
                         Cancelar
                     </button>
